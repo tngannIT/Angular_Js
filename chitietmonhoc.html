@@ -1,0 +1,639 @@
+<!-- <h1>Chi tiết môn : {{monhoc}}</h1> -->
+<style>
+    #carouselExampleCaptions .carousel-inner .carousel-item img {
+        height: 500px
+      }
+            
+            
+    .box-tittle-th{
+      border-left: 5px solid #fd8b88;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-left: 15px;
+      padding-top: 10px;
+      border-top: 10px;
+    }
+    /* Áp dụng cho tất cả các thẻ a trong dropdown menu */
+    .dropdown-item:hover {
+      background-color: #afb2b5; /* Màu nền khi hover */
+      color: #cd1a1a; /* Màu chữ khi hover */
+      text-decoration: none; /* Loại bỏ gạch chân */
+    }
+
+    /* Bạn cũng có thể thêm hiệu ứng chuyển đổi mềm mại */
+    .dropdown-item {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    /* Định dạng cho danh mục khóa học với màu mới */
+    .list-group {
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-top: 20px;
+      border: 1px solid rgb(59, 59, 59);
+    }
+
+    .list-group-item {
+      border: none;
+      border-radius: 0 !important;
+      transition: background-color 0.3s ease;
+      color: #3f3f3f; /* Cập nhật màu chữ */
+    }
+
+    .list-group-item-action:hover {
+      background-color: #737171; /* Màu nền khi hover, một màu xám nhạt */
+    }
+
+    .list-group-item.active {
+      background-color: #1ab91a; /* Một màu xanh lá, thay vì xanh dương */
+      color: white;
+      font-weight: bold;
+    }
+
+    .list-group-item {
+      padding: 15px 20px;
+    }
+
+    @media (max-width: 768px) {
+      .list-group {
+        border-radius: 0;
+      }
+    }
+
+
+    .container {
+      max-width: 1200px; /* Giới hạn chiều rộng container để nội dung không quá rộng trên màn hình lớn */
+      margin: auto; /* Căn giữa container */
+    }
+
+    /* .row {
+      display: flex;
+      flex-wrap: wrap; 
+    } */
+
+    aside {
+      padding: 20px;
+    }
+
+
+
+
+    .card {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Thêm bóng đổ cho card */
+      margin-bottom: 20px; /* Khoảng cách giữa các card */
+      transition: transform 0.2s ease-in-out; /* Hiệu ứng khi hover */
+      
+    }
+
+    .card:hover {
+      transform: translateY(-5px); /* Nhấc card lên một chút khi hover */
+    }
+
+    .card img {
+      max-height: 180px; /* Giới hạn chiều cao hình ảnh */
+      object-fit: cover; /* Đảm bảo hình ảnh phủ kín không gian mà không bị méo */
+    }
+
+    .card-body {
+      padding: 15px; /* Khoảng cách nội dung trong card */
+    }
+
+    .card-title {
+      color: #ce1717; /* Màu sắc cho tiêu đề card */
+    }
+
+    .btn-primary {
+      background-color: #545555; /* Màu nền cho nút */
+      border: none; /* Loại bỏ viền */
+      cursor: pointer; /* Hiển thị con trỏ như một dấu hiệu có thể click */
+    }
+
+    /* Responsive layout adjustments */
+    @media (max-width: 992px) {
+      .aside, .article {
+        flex: 0 0 100%;
+        max-width: 100%; /* Cho phép aside và article chiếm full chiều rộng trên màn hình nhỏ */
+      }
+    }
+
+
+    /* Tin tức */
+
+    .container {
+      padding: 20px; /* Khoảng cách lề cho container */
+    }
+
+    .box-tittle-th {
+      font-size: 24px; /* Kích thước font cho tiêu đề */
+      font-weight: bold; /* Chữ in đậm */
+      margin-bottom: 20px; /* Khoảng cách dưới cho tiêu đề */
+    }
+
+    .card {
+      border: none; /* Loại bỏ viền */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Thêm bóng đổ nhẹ */
+    }
+
+    .card-body {
+      padding: 20px; /* Khoảng cách nội dung trong card */
+    }
+
+    .card-title {
+      font-size: 18px; /* Kích thước font cho tiêu đề card */
+      font-weight: bold; /* Chữ in đậm */
+    }
+
+    .card-text {
+      font-size: 16px; /* Kích thước font cho nội dung card */
+    }
+
+    .text-muted {
+      font-size: 14px; /* Kích thước font cho thông tin bổ sung */
+      color: #6c757d; /* Màu chữ cho thông tin bổ sung */
+    }
+
+    .img-thumbnail {
+      border: none;
+      height: 200px;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        max-width: 100%; /* Đảm bảo card không bị tràn ra ngoài màn hình trên thiết bị nhỏ */
+      }
+    }
+
+    .container {
+      padding: 20px; /* Khoảng cách lề cho container */
+    }
+
+    .box-tittle-th {
+      font-size: 24px; /* Kích thước font cho tiêu đề */
+      font-weight: bold; /* Chữ in đậm */
+      margin-bottom: 20px; /* Khoảng cách dưới cho tiêu đề */
+    }
+
+    .figure {
+      margin-bottom: 20px; /* Khoảng cách giữa các hình ảnh */
+    }
+
+    .figure-caption {
+      text-align: center; /* Căn giữa nội dung của figcaption */
+    }
+
+    @media (max-width: 576px) {
+      .figure {
+        max-width: 100%; /* Hình ảnh sẽ hiển thị toàn bộ trên các thiết bị nhỏ */
+      }
+    }
+
+
+    /* Khóa học ưu đãi */
+    .container {
+      padding: 20px; /* Khoảng cách lề cho container */
+    }
+
+    .box-tittle-th {
+      font-size: 24px; /* Kích thước font cho tiêu đề */
+      font-weight: bold; /* Chữ in đậm */
+      margin-bottom: 20px; /* Khoảng cách dưới cho tiêu đề */
+      
+    }
+
+    .card {
+      margin-bottom: 30px; /* Khoảng cách giữa các card */
+    }
+
+
+    .card-title {
+      font-weight: bold; /* Chữ in đậm cho tiêu đề card */
+    }
+
+    .card-text {
+      margin-bottom: 10px; /* Khoảng cách dưới cho nội dung card */
+    }
+
+    .card-img-top {
+      width: 100%; /* Chiều rộng hình ảnh */
+      height: auto; /* Chiều cao tự động điều chỉnh */
+    }
+
+
+    /* box text */
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+
+    .box-text {
+      padding: 15px; /* Padding inside each box for content */
+      background-color: #bababa; /* Light grey background, customizable */
+      border-radius: 10px; /* Rounded corners for the boxes */
+    }
+
+    .col-3 {
+      padding: 15px; /* Padding to create gutters between columns */
+    }
+
+    /* Adjust h5 and p tag styles within the .box-text */
+    .box-text h5 {
+      margin-bottom: 10px; /* Add some space below the heading */
+      color: #333; /* Dark color for text */
+    }
+
+    .box-text p {
+      color: #666; /* Slightly lighter color for paragraph text */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .col-4 {
+        flex: 0 0 50%; /* Take up 50% of the space, 2 columns */
+        max-width: 50%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .col-4 {
+        flex: 0 0 100%; /* Stack them vertically on smaller screens */
+        max-width: 100%;
+      }
+    }
+
+
+
+
+    @media (max-width: 576px) {
+      .card {
+        max-width: 100%; /* Kích thước card sẽ hiển thị toàn bộ trên các thiết bị nhỏ */
+      }
+    }
+
+
+    .container {
+margin: 20px auto;
+}
+
+.row {
+display: flex;
+flex-wrap: wrap;
+}
+
+.col-7, .col-5 {
+flex: 0 0 auto;
+}
+
+.text-tab {
+margin-top: 20px;
+}
+
+.nav-tabs {
+border-bottom: 1px solid #dee2e6;
+}
+
+.nav-tabs .nav-item {
+margin-bottom: -1px;
+}
+
+.nav-tabs .nav-link {
+border: 1px solid transparent;
+border-top-left-radius: .25rem;
+border-top-right-radius: .25rem;
+color: #007bff;
+background-color: transparent;
+border-color: transparent;
+}
+
+.nav-tabs .nav-link.active {
+color: #495057;
+background-color: #fff;
+border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.text-title {
+margin-top: 20px;
+}
+
+.text-content {
+margin-top: 20px;
+}
+
+.text-goal ul, .text-content ul {
+/* list-style-type: none; */
+padding-left: 0;
+}
+
+.text-goal p, .text-content p {
+margin-bottom: 5px;
+}
+
+.border {
+border: 1px solid #dee2e6;
+}
+
+.bg-danger {
+background-color: #dc3545 !important;
+}
+
+.text-white {
+color: #fff !important;
+}
+
+.courses {
+margin-top: 40px;
+}
+
+.courses h3 {
+margin-bottom: 20px;
+}
+
+.card {
+margin-bottom: 20px;
+}
+
+.card img {
+height: 200px;
+object-fit: cover;
+}
+
+.card-title {
+font-size: 1.25rem;
+}
+
+.card-text {
+margin-bottom: 15px;
+}
+
+.btn-primary {
+color: #fff;
+background-color: #007bff;
+border-color: #007bff;
+}
+
+.btn-primary:hover {
+color: #fff;
+background-color: #0056b3;
+border-color: #0056b3;
+}
+
+
+
+/* Cài đặt cơ bản cho container và hàng */
+.container {
+width: 100%;
+max-width: 1200px; /* Hoặc bất kỳ kích thước nào bạn muốn */
+margin: 0 auto; /* Căn giữa container */
+padding: 20px;
+}
+
+.row {
+display: flex;
+flex-wrap: wrap;
+margin-right: -15px;
+margin-left: -15px;
+}
+
+/* Cài đặt cho cột */
+.col-7, .col-5 {
+padding-right: 15px;
+padding-left: 15px;
+}
+
+.col-7 {
+flex: 0 0 58.333333%;
+max-width: 58.333333%;
+}
+
+.col-5 {
+flex: 0 0 41.666667%;
+max-width: 41.666667%;
+}
+
+/* Cài đặt cho tiêu đề và nội dung */
+h3, h4 {
+color: #1d4914; /* Màu cho tiêu đề */
+margin-bottom: 15px; /* Khoảng cách dưới tiêu đề */
+}
+
+p {
+/* color: #666; Màu chữ */
+line-height: 1.6; /* Khoảng cách giữa các dòng */
+}
+
+/* Cài đặt cho tabs */
+.nav-tabs .nav-link {
+border: 1px solid transparent;
+border-radius: .25rem;
+color: #1f446b; /* Màu chữ cho tab */
+margin-right: 2px;
+}
+
+.nav-tabs .nav-link.active {
+color: #fff;
+background-color: #dc3545;
+border-color: #ffffff;
+}
+
+.tab-content {
+padding: 20px;
+border: 1px solid #dee2e6;
+border-top: none;
+}
+
+/* Cài đặt cho phần học ngay */
+.text-title h3, .text-title h4 {
+text-align: center; /* Căn giữa tiêu đề */
+}
+
+.text-title a {
+display: block;
+text-align: center;
+margin: 10px 0; 
+text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+.row {
+    flex-direction: column;
+}
+
+.col-7, .col-5 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+}
+
+    
+
+</style>
+
+
+<section  class="container">
+    <div class="row">
+        <article class="col-7">
+          <h3>{{ ten_monhoc }}</h3>
+          <p>Học và làm bài quizz để củng cố kiến thức ngay bây giờ nào!</p>
+          
+          <div >
+                  <img width="400px" src="{{ courseDetail.Logo }}" alt="">
+              
+          </div>
+          
+            <div class="text-tab">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="des-tab" data-toggle="tab" href="#des" role="tab" aria-controls="des"
+                            aria-selected="true">Mô tả khóa học</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                            aria-selected="false">Đối tượng mục tiêu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                            aria-selected="false">Kết quả mong đợi</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="des" role="tabpanel" aria-labelledby="des-tab">
+                            <ul>  
+                                <li>
+                                    <b>Khóa học này nhằm mục đích:</b>
+                                    Cung cấp cho học viên kiến thức ngữ pháp từ cơ bản đến nâng cao.
+                                    Giúp học viên áp dụng ngữ pháp một cách chính xác trong cả việc viết và nói.
+                                    Phát triển kỹ năng phân tích và sử dụng ngữ pháp trong nhiều ngữ cảnh khác nhau.
+                                    Tăng cường sự tự tin trong giao tiếp và viết lách thông qua việc sử dụng ngữ pháp đúng đắn.
+                                </li>
+                            </ul>  
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <ul>  
+                            <li>
+                                <b>Đối tượng</b>
+                                Khóa học này phù hợp với mọi đối tượng quan tâm đến việc cải thiện kỹ năng ngữ pháp của mình, từ học sinh, 
+                                sinh viên cho đến người đi làm muốn nâng cao khả năng giao tiếp và viết lách trong công việc cũng như trong cuộc sống hàng ngày.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <ul>  
+                            <li>
+                                <b>Sau khi hoàn thành khóa học, học viên sẽ:</b>
+                                Có kiến thức vững chắc về ngữ pháp tiếng Anh.
+                                Cải thiện đáng kể kỹ năng viết và nói của mình.
+                                Tự tin sử dụng tiếng Anh trong mọi tình huống giao tiếp.
+                                Có khả năng tự học và tự cải thiện kỹ năng ngữ pháp sau khóa học.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <aside class="col-5">
+            <div  class="text-title">
+                <h3 class="text-center">Học Ngay</h3>
+                <h4 class="text-center">Giá chỉ <b style="color: rgb(215, 88, 25);">990.000 <sup>đ</sup></b></h4>
+                <a   class="border p-2 bg-danger text-white " href="#!quizz/{{id_monhoc}}/{{ten_monhoc}}">Bắt đầu làm Quizz</a>
+            </div>
+            <hr>
+            <div class="text-content">
+                <div class="text-goal">
+                    <b style="color: #6d6c6b;">Mục tiêu khóa học:</b>
+                    <ul>
+                        <li>Nắm vững kiến thức Ngữ Pháp cho người mất gốc</li>
+                    </ul>
+                    <b style="color: #6d6c6b;">Cấu trúc khóa học:</b>
+                    <ul>
+                        <li>10 để quizz</li>
+                        <li>10 tài liệu để ôn tập</li>
+                    </ul>
+                    <b style="color: #6d6c6b;">Dịnh vụ:</b>
+                    <ul>
+                        <li>Có các kênh để trao đổi thông tin</li>
+                        <li>Hỏi đáp 24/7</li>
+                    </ul>
+
+                </div>
+            </div>
+        </aside>
+  <!-- <script>
+    // Trong file JavaScript của bạn
+    var app = angular.module("myApp", ["ngRoute"]);
+
+    app.controller("subjectDetailCtrl", function ($scope, $routeParams, $http) {
+      // Lấy thông tin mã môn học từ URL
+      var subjectId = $routeParams.subjectId;
+
+      // Tìm môn học trong danh sách dựa vào subjectId
+      $http.get('../db/Subjects.js').then(function(response) {
+var subjects = response.data;
+console.log(subjects);
+
+var subjectId = $routeParams.subjectId;
+for (var i = 0; i < subjects.length; i++) {
+    if (subjects[i].Id === subjectId) {
+        $scope.subject = subjects[i];
+        console.log($scope.subject);
+        break;
+    }
+}
+}).catch(function(error) {
+console.error('Error fetching subjects:', error);
+});
+
+
+      // Hàm để bắt đầu làm quiz
+      $scope.startQuiz = function() {
+        // Chuyển hướng đến trang làm quiz của môn học
+        window.location.href = '../Lab4/lamquiz.html?subjectId=' + subjectId;
+      };
+    });
+
+  </script> -->
+    </div>
+    <hr>
+    <div class="courses">
+        <h3>Các khóa học liên quan</h3>
+        <div class="row">
+            <div class="card 2  col-3 " style="width: 17rem;">
+                <img src="https://vcdn-vnexpress.vnecdn.net/2019/12/25/English-4093-1577240389.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Toeic cơ bản cho người mới đi làm</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-danger">Xem chi tiết</a>
+                </div>
+              </div>
+              <div class="card 2 col-3 " style="width: 17rem;">
+                <img src="https://cdnstepup.r.worldssl.net/wp-content/uploads/2019/03/learn-english1-vicook-6e068f469abc86e7b50da7d64c57c3d1-min.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Ielts cơ bản</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-danger">Xem chi tiết</a>
+                </div>
+              </div>
+              <div class="card 2  col-3" style="width: 17rem;">
+                <img src="https://static.ybox.vn/2023/7/3/1690370041651-unnamed.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Ielts nâng cao</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-danger">Xem chi tiết</a>
+                </div>
+              </div>
+              <div class="card 2  col-3" style="width: 17rem;">
+                <img src="https://static.ybox.vn/2023/7/3/1690370041651-unnamed.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Ielts nâng cao</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-danger">Xem chi tiết</a>
+                </div>
+              </div>
+        </div>
+    </div>
+  </section>

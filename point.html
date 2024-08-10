@@ -1,0 +1,63 @@
+
+     <style>
+        .container {
+        width: 80%; 
+        margin: auto; 
+        text-align: center; 
+         padding: 40px; 
+        
+    }
+    
+    h3 {
+        color: #333; /* Màu chữ đậm */
+    }
+    
+    .kq {
+        margin-bottom: 20px; /* Khoảng cách giữa phần kết quả và nút */
+        border: 2px solid #ccc; 
+        background-color: #ceddad;
+    
+    }
+    
+    .kq p {
+        margin: 20px 0; /* Khoảng cách giữa các đoạn văn bản */
+    }
+    
+    .kq b {
+        color: red; /* Màu chữ đỏ */
+    }
+    
+    
+    
+    .btn-danger {
+        background-color: #dc3545; /* Màu đỏ */
+        color: white; /* Màu chữ trắng */
+        text-decoration: none; /* Không có gạch chân cho liên kết */
+        margin-right: 10px; /* Khoảng cách giữa các nút */
+        padding: 10px 20px; /* Kích thước của nút */
+        border: none; /* Không có viền */
+        border-radius: 5px; /* Góc bo tròn */
+        cursor: pointer; /* Con trỏ khi rê chuột */
+    }
+    
+    .btn-danger:hover {
+        background-color: #c82333; /* Màu đỏ đậm khi di chuột qua */
+    }
+    
+    </style>
+
+<section class="container">
+    <div style="font-size: 18px;" class="kq">
+        <h3>KẾT QUẢ BÀI LÀM</h3>
+        <p>Bạn đã đúng <b style="color: red;">{{ correctAnswers }}/{{ questions.length }}</b> câu. Xin chúc mừng!</p>
+        <p>Số câu làm sai: <b>{{ incorrectAnswers }}/{{ questions.length }}</b></p>
+        <p>Điểm số: <b style="color: red;">{{ totalScore }}/{{ questions.length * 10 }}</b></p>
+    </div>
+    <button class="btn btn-danger"><a style="color: white; text-decoration: none;" href="#!quizz/{{id_monhoc}}/{{ten_monhoc}}">Làm lại</a></button>
+    <button class="btn btn-danger"><a style="color: white; text-decoration: none;" href="#">Lưu kết quả</a></button>
+</section>
+
+
+
+
+    

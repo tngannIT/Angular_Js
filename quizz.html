@@ -1,0 +1,200 @@
+
+    <style>
+        
+        .container {
+            padding: 20px;
+        }
+
+        .title h3 {
+            color: #dc3545; /* Màu sắc cho tiêu đề, giống như màu của Bootstrap primary */
+        }
+
+        .title hr {
+            border-top: 2px solid rgb(99, 97, 97); /* Đặt màu và độ dày cho đường kẻ ngang */
+        }
+
+        .custom-control-label {
+            cursor: pointer; /* Khi di chuyển chuột lên trên, hiển thị con trỏ pointer */
+        }
+
+
+
+        .btn-danger {
+            float: right; /* Đẩy nút 'Nộp bài' về phía bên phải */
+        }
+
+        .list-group-item-action.active {
+            background-color: #dc3545; /* Màu nền cho mục danh sách đang hoạt động */
+            border-color: #dc3545; /* Màu viền cho mục danh sách đang hoạt động */
+        }
+
+        /* Thêm một số tùy chỉnh cho responsive */
+        @media (max-width: 768px) {
+            .aside {
+                padding-top: 20px;
+            }
+        }
+
+        .question {
+            
+            background-color: #f9f9f9; /* Màu nền cho khung câu hỏi */
+            padding: 20px; 
+            border-radius: 8px; /* Bo tròn góc */
+            border: 1px solid #ddd; /* Viền xung quanh */
+            margin-bottom: 20px; /* Khoảng cách với phần tiếp theo */
+        }
+
+        .custom-control {
+            margin-bottom: 15px; /* Khoảng cách giữa các radio button */
+        }
+
+        .custom-control-input {
+            cursor: pointer; /* Con trỏ chuột khi hover */
+        }
+
+        .custom-control-label {
+            cursor: pointer; /* Con trỏ chuột khi hover */
+            padding-left: 5px; /* Khoảng cách giữa radio button và nhãn */
+        }
+
+ 
+
+
+        /* Hiệu ứng khi hover trên label (tùy chọn) */
+        .custom-control-label:hover::before {
+            background-color: #e7e7e7; /* Nhẹ nhàng thay đổi màu nền khi hover */
+            border-color: #adb5bd; /* Thay đổi màu viền khi hover */
+        }
+
+        /* Cải thiện cho màn hình đọc màn hình và trợ năng */
+        .custom-control-input:disabled ~ .custom-control-label::before {
+            background-color: #e9ecef;
+            color: #6c757d;
+        }
+
+
+
+
+        .list-group {
+            border: 1px solid #ddd; /* Thêm viền xung quanh danh sách */
+            border-radius: 5px; /* Bo tròn góc */
+            overflow: hidden; /* Giúp viền bo tròn được áp dụng đúng cách */
+            box-shadow: 0 2px 4px rgba(0,0,0,.1); /* Thêm bóng đổ nhẹ */
+            margin-bottom: 20px; /* Khoảng cách với phần tử tiếp theo */
+        }
+
+        .list-group-item {
+            border: none; /* Bỏ viền giữa các mục */
+            padding: 15px 20px; /* Đệm cho mỗi mục */
+            background-color: #f8f9fa; /* Màu nền cho mỗi mục */
+            color: #333; /* Màu chữ */
+            transition: background-color .3s, color .3s; /* Hiệu ứng khi hover */
+        }
+
+        .list-group-item-action:hover, .list-group-item-action:focus {
+            background-color: #e9ecef; /* Thay đổi màu nền khi hover hoặc focus */
+            color: black; /* Thay đổi màu chữ khi hover hoặc focus */
+            text-decoration: none; /* Bỏ gạch chân khi hover hoặc focus */
+        }
+
+        .list-group-item.active {
+            background-color: #dc3545; /* Màu nền cho mục đang được chọn */
+            color: white; /* Màu chữ cho mục đang được chọn */
+            border: none; /* Bỏ viền cho mục đang được chọn */
+        }
+
+
+
+        .pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.page-item {
+    margin: 0 5px; /* Khoảng cách giữa các nút */
+}
+
+.page-link {
+    display: block;
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 5px; /* Bo tròn góc */
+    border: 1px solid #00000030; /* Viền xanh */
+    background-color: #dc3545; /* Nền trắng */
+    color: white; /* Chữ màu xanh */
+    text-decoration: none; /* Bỏ gạch chân */
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out; /* Hiệu ứng chuyển màu */
+}
+
+.page-item.active .page-link {
+    background-color: #a81919; /* Nền màu xanh cho nút hiện tại */
+    color: #fff; /* Màu chữ trắng */
+    border-color: #007bff; /* Viền màu xanh */
+}
+
+.page-link:hover {
+    color: white; /* Màu chữ khi hover */
+    background-color: #ae2d3a; /* Màu nền khi hover */
+    border-color: black; /* Viền khi hover */
+    cursor: pointer;
+}
+
+
+    </style>
+
+
+    <section class="container">
+        <div class="row">
+            <article class="col-12">
+                <div class="title">
+                    <h3>{{ten_monhoc}}</h3>
+                    <hr>
+                </div>
+                <div class="col-2">
+                    <p>Time: <b style="font-size: 20px;">{{getTime()}}</b></p>
+                 </div>
+                <div>
+                    <div class="question" ng-repeat="ques in questions.slice(start, start + pageSize)" class="col-10">
+                        <h5>{{$index + start + 1}}. {{ques.Text}}</h5>
+                        <div ng-repeat="p in ques.Answers" class="custom-control custom-radio">
+                            <input type="radio" id="customRadio{{$parent.$index}}_{{$index}}" name="cauhoi_{{$parent.$index}}" ng-model="answers[start]" ng-click="replace(p.Id)" value="{{p.Id}}" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadio{{$parent.$index}}_{{$index}}">{{p.Text}}</label>
+
+                        </div>
+                        
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                </div>
+                
+                <br>
+                <div class="row">
+                    <div class="pag col-9">
+                        <nav aria-label="...">
+                            <ul class="pagination">
+                            <li class="page-item">
+                                <a ng-click="prev()" class="page-link" >Previous</a>
+                            </li>
+                            <li class="page-item">
+                                <a ng-click="next()" class="page-link">Next</a>
+                            </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-3">
+                        <button ng-click="endQuiz()" class="btn btn-danger"><span style="color: white; text-decoration: none;" href="">Nộp bài</span></button>
+                    </div>
+                </div>
+
+            </article>
+            
+        </div>
+
+    </section>
+
+
+    

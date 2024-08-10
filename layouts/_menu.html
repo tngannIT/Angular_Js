@@ -1,0 +1,64 @@
+<a class="navbar-brand" href="#!trangchu">
+    <img src="https://t3.ftcdn.net/jpg/03/54/21/18/360_F_354211818_fsqKu5TCI8FPd4lNFzVwPfbu4FMqwPQS.jpg" width="100px" alt="">
+</a>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link text-white" href="#!trangchu">Trang chủ <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="#!gioithieu">Giới thiệu</a>
+    </li>
+    <li class="nav-item  ">
+      <a class="nav-link text-white" href="#!khoahoc" >Khóa học</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white " href="#!lienhe">Liên hệ</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white" href="#!hoidap">Hỏi đáp</a>
+    </li>
+    
+    <li class="nav-item dropdown">
+      <!-- Hiển thị khi người dùng chưa đăng nhập -->
+      <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-expanded="false" ng-if="!loggedIn">
+          <i class="bi bi-person-fill"></i>
+      </a>
+      <div class="dropdown-menu" ng-if="!loggedIn">
+          <a class="dropdown-item" href="#!dangnhap">Đăng nhập</a>
+          <a class="dropdown-item" href="#!dangky">Đăng ký</a>
+          <!-- Các tùy chọn sau không hợp lý khi chưa đăng nhập, cân nhắc loại bỏ hoặc điều chỉnh logic hiển thị -->
+          <a class="dropdown-item" href="#!doiMatKhau">Đổi mật khẩu</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#!editTaiKhoan">Chỉnh sửa thông tin tài khoản</a>
+      </div>
+  
+      <!-- Hiển thị khi người dùng đã đăng nhập -->
+      <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-expanded="false" ng-if="loggedIn">
+        Xin chào {{username}}
+    </a>
+    <div class="dropdown-menu" ng-if="loggedIn">
+        <a class="dropdown-item" href="#!doiMatKhau">Đổi mật khẩu</a>
+        <a class="dropdown-item" href="#!chinhsua">Chỉnh sửa thông tin tài khoản</a>
+        <div  class="dropdown-divider"></div>
+        <!-- Gọi hàm dangxuat() khi người dùng nhấn vào liên kết Đăng xuất -->
+        <a style="cursor: pointer;" class="dropdown-item" ng-click="dangXuat()">Đăng xuất</a>
+    </div>
+    
+  </li>
+  
+  </ul>
+  <a class="text-white m-0" href="#"><i class="bi bi-facebook"></i></a>
+  <a class="text-white m-3" href="#"><i class="bi bi-instagram"></i></i></a>
+
+  <form class="form-inline my-2 my-lg-0">
+    <input  class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button  class="btn btn-outline-warning my-2 my-sm-0" type="submit"><i class="bi bi-search-heart"></i></button>
+  </form>
+ 
+</div>
